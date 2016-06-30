@@ -45,11 +45,18 @@ class Extension extends \Twig_Extension
 
     /**
      * @param bool $forceCompression Default: false. Forces compression regardless of Twig's debug setting.
+     * @param string $constructorType Default: smallest. Defines Parser's constructor.
      */
-    public function __construct($forceCompression = false)
+    public function __construct($forceCompression = false, $constructorType = 'smallest')
     {
         $this->forceCompression = $forceCompression;
-        $this->parser = Factory::constructSmallest();
+        switch ($constructorType){
+            case 'smallest' : $this->parser = Factory::constructSmallest(); break;
+            case 'standard' : $this->parser = Factory::construct(); break;
+            case 'fastest'  :
+            default:
+                $this->parser = Factory::constructFastest(); break;
+        }
         $this->callable = array($this, 'compress');
     }
 
