@@ -1,5 +1,5 @@
 {
-    "name": "a2zi/html-compress-twig",
+    "name": "nochso/html-compress-twig",
     "description": "Twig extension for compressing HTML and inline CSS/Javascript",
     "keywords": ["html", "compress", "twig", "extension", "minify", "javascript", "css"],
     "type": "library",
